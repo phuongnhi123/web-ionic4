@@ -1,0 +1,433 @@
+
+<ion-header>
+<ion-toolbar color="warning">
+  <ion-buttons slot="secondary">
+    <ion-button>
+      <ion-icon slot="icon-only" name="contact"></ion-icon>
+    </ion-button>
+    <ion-button>
+      <ion-icon slot="icon-only" name="search"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-buttons slot="primary">
+    <ion-button (click)="toggleMenu()" slot="start" color="primary">
+      <ion-icon  slot="icon-only" name="more">
+      </ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-title>  PAL TECH </ion-title>
+</ion-toolbar>
+</ion-header>
+
+<ion-content >
+    <!-- <p class="lable-info" style="margin-bottom: 5px;" >  Assignment Me </p>
+  <div class="container-fluid">
+    <div class="table-row header">
+      <div class="column index">#</div>
+      <div class="wrapper attributes">
+        <div class="wrapper title-comment-module-reporter">
+          <div class="wrapper title-comment">
+            <div class="column title">Title</div>
+            <div class="column comment">Comment</div>
+          </div>
+        </div>
+        <div class="wrapper status-owner-severity">
+          <div class="wrapper status-owner">
+            <div class="column status">Status</div>
+            <div class="column owner">Owner</div>
+          </div>
+          <div class="column severity">Severity</div>
+        </div>
+      </div>
+      <div class="wrapper icons">
+        <div title="Watch" class="column watch">
+          <span class="glyphicon glyphicon-eye-open"></span>
+        </div>
+        <div title="Add comment" class="column add-comment">
+          <span class="glyphicon glyphicon-comment"></span>
+        </div>
+      </div>
+      <div class="wrapper dates">
+        <div class="column date">Created</div>
+        <div class="column date">Updated</div>
+        <div class="column date">Due</div>
+      </div>
+    </div>
+   
+    
+    <div *ngFor="let issue of listIssue; let i = index; " class="table-row" (click)="addIssues(issue)" >
+      <div class="column index">  
+         <ng-container *ngIf="issue.isAdd"> 
+            <ion-icon  name="remove-circle" color="danger" ></ion-icon>
+         </ng-container>
+         <ng-container *ngIf="!issue.isAdd" >
+            <ion-icon name="add-circle" color="primary"></ion-icon>
+         </ng-container>
+      </div>
+      <div class="wrapper attributes">
+        <div class="wrapper title-comment-module-reporter">
+          <div class="wrapper title-comment">
+            <div class="column title">{{ issue.subject }}</div>
+            <div class="column comment">{{ issue.description }}</div>
+          </div>
+        </div>
+        <div class="wrapper status-owner-severity">
+          <div class="wrapper status-owner">
+            <div class="column status"><span class="label label-primary">{{issue.status.name}}</span></div>
+            <div class="column owner">{{issue.author.name}}</div>
+          </div>
+          <div class="column severity {{ issue.priority.name }}">{{issue.priority.name}}</div>
+        </div>
+      </div>
+      <div class="wrapper icons">
+        <div class="column watch"><span class="glyphicon glyphicon-eye-open active" ></span></div>
+        <div class="column add-comment"><span class="glyphicon glyphicon-comment" ></span></div>
+      </div>
+      <div class="wrapper dates">
+        <div class="column date">{{issue.created_on |  date: 'MMM-d/yyyy' }}</div>
+        <div class="column date">{{issue.updated_on |  date: 'MMM-d/yyyy' }}</div>
+        <div class="column date">{{issue.closed_on |  date: 'MMM-d/yyyy'}}</div>
+      </div>
+    </div>
+  </div> -->
+  <div class="container-market-view">
+  <div ng-if="!isMaintenance &amp;&amp; !isInActive" class="layout-market-view ng-scope">
+     <div class="mod-market-view ng-scope" ng-include="'views/modules/market-all.html' + version">
+<div class="layout-LC-view ng-scope ng-hide" ng-show="enableShowLive &amp;&amp; sportctrl.sport.sportName !== 'horse-racing' &amp;&amp; sportctrl.sport.sportName !== 'greyhound-racing'">
+<div class="live-center-content">
+  <iframe ng-if="!isErrorMSG" class="player ng-scope" frameborder="0" style="display: block; width: 100%" scrolling="no" marginwidth="0" marginheight="0" ng-src="http://liveqat.beatus88.com/running-view/home/?id=28774995&amp;&amp;event=abc&amp;&amp;deviceName=mobile" src="http://liveqat.beatus88.com/running-view/home/?id=28774995&amp;&amp;event=abc&amp;&amp;deviceName=mobile">
+    </iframe>
+</div>
+</div>
+<section class="mod-all-markets phone ng-scope">
+<ul class="ribbon-list ng-scope" ng-if="sportctrl.sport.sportName !== 'horse-racing' &amp;&amp; sportctrl.sport.sportName !== 'greyhound-racing'">
+   <li class="ribbon-item ng-scope ribbon-item-active" ex-ribbon-scroll="" ng-repeat="item in sportctrl.markets track by $index" ng-if="$index < 5 || (sportctrl.sport.marketSelected === item.marketId)" ng-class="{'ribbon-item-active': sportctrl.sport.marketSelected === item.marketId}" ng-click="changeMarket(item.marketId,item.marketId,item.eventId)">
+        <!-- ngIf: SPORT_MARKET_TYPE.indexOf(item.marketType) < 0 --><a class="ribbon-link ng-binding ng-scope" ng-if="SPORT_MARKET_TYPE.indexOf(item.marketType) < 0">Match Odds</a><!-- end ngIf: SPORT_MARKET_TYPE.indexOf(item.marketType) < 0 -->
+    </li><!-- end ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><li class="ribbon-item ng-scope" ex-ribbon-scroll="" ng-repeat="item in sportctrl.markets track by $index" ng-if="$index < 5 || (sportctrl.sport.marketSelected === item.marketId)" ng-class="{'ribbon-item-active': sportctrl.sport.marketSelected === item.marketId}" ng-click="changeMarket(item.marketId,item.marketId,item.eventId)">
+        <!-- ngIf: SPORT_MARKET_TYPE.indexOf(item.marketType) < 0 --><a class="ribbon-link ng-binding ng-scope" ng-if="SPORT_MARKET_TYPE.indexOf(item.marketType) < 0">Asian Handicap</a><!-- end ngIf: SPORT_MARKET_TYPE.indexOf(item.marketType) < 0 -->
+    </li><!-- end ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><li class="ribbon-item ng-scope" ex-ribbon-scroll="" ng-repeat="item in sportctrl.markets track by $index" ng-if="$index < 5 || (sportctrl.sport.marketSelected === item.marketId)" ng-class="{'ribbon-item-active': sportctrl.sport.marketSelected === item.marketId}" ng-click="changeMarket(item.marketId,item.marketId,item.eventId)">
+        <!-- ngIf: SPORT_MARKET_TYPE.indexOf(item.marketType) < 0 --><a class="ribbon-link ng-binding ng-scope" ng-if="SPORT_MARKET_TYPE.indexOf(item.marketType) < 0">Aston Villa win to nil</a><!-- end ngIf: SPORT_MARKET_TYPE.indexOf(item.marketType) < 0 -->
+    </li><!-- end ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><li class="ribbon-item ng-scope" ex-ribbon-scroll="" ng-repeat="item in sportctrl.markets track by $index" ng-if="$index < 5 || (sportctrl.sport.marketSelected === item.marketId)" ng-class="{'ribbon-item-active': sportctrl.sport.marketSelected === item.marketId}" ng-click="changeMarket(item.marketId,item.marketId,item.eventId)">
+        <!-- ngIf: SPORT_MARKET_TYPE.indexOf(item.marketType) < 0 --><a class="ribbon-link ng-binding ng-scope" ng-if="SPORT_MARKET_TYPE.indexOf(item.marketType) < 0">Double Chance</a><!-- end ngIf: SPORT_MARKET_TYPE.indexOf(item.marketType) < 0 -->
+    </li><!-- end ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><li class="ribbon-item ng-scope" ex-ribbon-scroll="" ng-repeat="item in sportctrl.markets track by $index" ng-if="$index < 5 || (sportctrl.sport.marketSelected === item.marketId)" ng-class="{'ribbon-item-active': sportctrl.sport.marketSelected === item.marketId}" ng-click="changeMarket(item.marketId,item.marketId,item.eventId)">
+        <!-- ngIf: SPORT_MARKET_TYPE.indexOf(item.marketType) < 0 --><a class="ribbon-link ng-binding ng-scope" ng-if="SPORT_MARKET_TYPE.indexOf(item.marketType) < 0">Next Goal</a><!-- end ngIf: SPORT_MARKET_TYPE.indexOf(item.marketType) < 0 -->
+    </li><!-- end ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index --><!-- ngIf: $index < 5 || (sportctrl.sport.marketSelected === item.marketId) --><!-- end ngRepeat: item in sportctrl.markets track by $index -->
+    <!-- ngIf: sportctrl.markets.length > 5 --><li ng-if="sportctrl.markets.length > 5" class="ribbon-item ng-scope">
+        <a class="ribbon-link ng-scope" ng-click="sportctrl.goAllMarket(sportctrl.sport.sportName, sportctrl.sport.eventId)" translate="I18N.LABELS.ALL_MARKETS">All Markets</a>
+    </li>
+</ul>
+
+<div class="live-center-content ng-hide" style="width: inherit" ng-show="enableShowLive &amp;&amp; ((sportctrl.sport.sportName === 'horse-racing' || sportctrl.sport.sportName === 'greyhound-racing'))">
+    <iframe class="player ng-hide" height="290" frameborder="0" ng-show="enableShowLive &amp;&amp; ((sportctrl.sport.sportName === 'horse-racing' || sportctrl.sport.sportName === 'greyhound-racing'))" style="display: block; width: 100%" scrolling="no" marginwidth="0" marginheight="0" ng-src="http://liveqat.beatus88.com/running-view/home/?id=28774995&amp;&amp;event=abc&amp;&amp;deviceName=mobile" src="http://liveqat.beatus88.com/running-view/home/?id=28774995&amp;&amp;event=abc&amp;&amp;deviceName=mobile">
+
+    </iframe>
+</div>
+
+<div class="refresh-container soccer" ng-click="sportctrl.refreshData();" ng-if="(sportctrl.data.marketId != null) &amp;&amp; isShowRefresh()">
+    <button class="refresh-button fastclickable fastclick-touched fastclick-active"><span class="sprite-ui-refresh"></span></button>
+</div>
+</section></div>
+     <div ng-if="!sportctrl.isSoccerGoalLines &amp;&amp; !sportctrl.isCombinedTotal" class="ng-scope">
+        <div class="center-container soccer">
+          <div ng-if="sportctrl.sport.sportName !== 'horse-racing' &amp;&amp; sportctrl.sport.sportName !== 'greyhound-racing'" class="ng-scope">
+            <div ng-include="'views/modules/market-view.html' + version" class="ng-scope">
+<div class="mod-market-view ng-scope" ng-class="{'ex-loader-loading':sportctrl.loading['market-view']}">
+<div class="ex-loader"><div class="fake-module-ui"><div class="fake-loader"></div></div></div>
+<!-- ngIf: (!sportctrl.runners || sportctrl.runners.length == 0) && fairFancyCtrl.markets.length == 0 -->
+<div class="market-view-container">
+  <!-- ngIf: sportctrl.data.marketId.isFEMarket() --><div ng-if="sportctrl.data.marketId.isFEMarket()" class="ng-scope">  
+      <!-- ngIf: sportctrl.data.marketId !== null && profile.loggedIn === true && !sportctrl.isMarketClose() --><div class="market-bar ng-scope" ng-if="sportctrl.data.marketId !== null &amp;&amp; profile.loggedIn === true &amp;&amp; !sportctrl.isMarketClose()">
+          <div class="market-footer-item">
+              <span class="market-small-icon" ng-show="profile.loggedIn &amp;&amp; !sportctrl.isMarketClose()">
+                
+                      <button class="glyphicon icon-multi-markets multi-markets-font  glyphicon-plus-sign" id="1.144860794multi" ng-class="{'glyphicon-minus-sign' : multiMarketList.indexOf((sportctrl.data.marketId.substring(2))) >=0, 'glyphicon-plus-sign' : multiMarketList.indexOf((sportctrl.data.marketId.substring(2))) <0}" title="Add to Multi Market" ng-click="addMultiMarket()"></button>
+             
+              </span>
+              
+                  
+                      
+                  
+              
+              <!-- ngIf: !sportctrl.isMarketClose() --><span ng-if="!sportctrl.isMarketClose()" class="market-small-icon market-rules sprite-ui-rules-icon ng-scope" ng-click="toggleShowOdd(false, sportctrl.sport.marketId)"></span><!-- end ngIf: !sportctrl.isMarketClose() -->
+
+          </div>
+          <div class="right-area">
+              <!-- P&L Table - Asian Handicap -->
+              <!-- ngIf: sportctrl.isAHDoubleLine(sportctrl.data.bettingType) -->
+              <!-- P&L Table - Inns Runs -->
+              <!-- ngIf: sportctrl.isCricketAHSingleLine(sportctrl.sport.sportName, sportctrl.data.bettingType) -->
+              <a class="btn btn-market ellipsis-text open-bets ng-binding" ng-click="sportctrl.openBetsClick(sportctrl.sport.marketId)">
+                  <span class="open-bets-label ellipsis-text ng-scope" translate="I18N.LABELS.OPEN_BETS">Open bets</span> (0) 
+                  <span class="sprite-ui-chevron-arrow"></span>
+              </a>
+          </div>
+      </div><!-- end ngIf: sportctrl.data.marketId !== null && profile.loggedIn === true && !sportctrl.isMarketClose() -->
+      <!-- ngIf: sportctrl.data.marketId != null --><div class="runner-row runners-header ng-scope" ng-if="sportctrl.data.marketId != null">
+          <div class="runner-container-fluid">
+              <div class="runner-fluid-content">
+                  <div class="market-state">
+                      <!-- ngIf: sportctrl.data.inPlay -->
+                      <!-- ngIf: !sportctrl.data.inPlay && sportctrl.data.turnInPlayEnabled --><div class="market-state-option ng-scope" ng-if="!sportctrl.data.inPlay &amp;&amp; sportctrl.data.turnInPlayEnabled">
+                          <span class="market-small-icon sprite-ui-going-inplay-icon"></span>
+                          <span class="market-state-caption ellipsis-text ng-scope" translate="I18N.LABELS.GOING_IP">Going In-Play</span>
+                      </div><!-- end ngIf: !sportctrl.data.inPlay && sportctrl.data.turnInPlayEnabled -->
+                  </div>
+              </div>
+          </div>
+      </div><!-- end ngIf: sportctrl.data.marketId != null -->
+      <!-- ngIf: sportctrl.data.marketId != null --><div class="runner-row runners-header ng-scope" ng-if="sportctrl.data.marketId != null">
+          <div class="runner-container-fluid">
+              <div class="runner-fluid-content">
+                  <div class="market-state">
+                    <div class="market-footer-item ng-binding" ng-hide="sportctrl.isMarketClose()">
+                      <span translate="I18N.LABELS.MATCHED" class="ng-scope">Matched</span>:
+                      INR&nbsp;<strong ng-bind="sportctrl.data.totalMatched | myCurrency:sportctrl.currencyCode + ' ':0" class="ng-binding">6,156,610</strong>
+                </div>
+                  </div>
+              </div>
+          </div>
+          <div class="runner-container-fixed">
+              <div class="runner-back"><!-- ngIf: !isPhone --><span class="heading right ng-scope" translate="I18N.COMMON.BACK_LOWER">back</span></div>
+              <div class="runner-lay"><span class="heading left ng-scope" translate="I18N.LABELS.LAY_LOWER">lay</span><!-- ngIf: !isPhone --></div>
+          </div>
+      </div><!-- end ngIf: sportctrl.data.marketId != null -->
+      <div class="clearfix"></div>
+      <div class="runners-list">
+
+  <div *ngFor=" let item of sportctrl.runners ; let  $index = index ;" ng-init="runnerIndex = $index" id="runners-index-58805-0" class="ng-scope">
+             <div ng-if="item.status !== 'REMOVED'" class="runner-row ng-scope">
+                  <div class="runner-container-fluid">
+                      <div class="runner-fluid-content runner-info" ng-class="{'has-pnl':(sportctrl.isPnlVisible(item) &amp;&amp; sportctrl.lineRangeInfo == null)}">
+                          <div class="name ellipsis-text" ng-class="{'ellipsis-text':sportctrl.sport.marketType !== 'ASIAN_HANDICAP'}">
+                            <span class="runner-metadata market-small-icon market-graph fastclickable sprite-ui-marketgraph" ng-click="showGraph(true, sportctrl.sport.marketId, item.selectionId)"></span>
+                            <span translate="The Draw" class="ng-scope">The Draw</span>
+                          </div>
+                       <div class="pnl ng-scope" ng-if="!sportctrl.isMarketClose() &amp;&amp; !sportctrl.sameLine() &amp;&amp; sportctrl.lineRangeInfo == null">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="runner-container-fixed" ng-class="{'disabled' : sportctrl.data.addClassDisabled }">
+                      <span class="runner-back">
+                      <button class="btn-price-back btn-price-non-sp btn btn-price ng-scope btn-price-depth" ng-repeat="marketItem in item.exchanges.availableToBack| orderBy:'price'" ng-class="{'btn-price-depth': item.exchanges.availableToBack.length - $index > 1 ,
+                                             'selected': priceButtonId === bet.selectedPriceButton &amp;&amp; bet.handicap === item.handicap,
+                                             'changed': hasChanged(priceButtonId)}" ng-init="depth = item.exchanges.availableToBack.length - $index > 1 ; priceButtonId = getPriceButtonId($index, item, 'BACK', runnerIndex, depth)"  (click)="selectionId = item.selectionId ; handicap =   item.handicap">
+                              <div class="price ng-binding">3.2</div>
+                              <div class="size ellipsis-text ng-binding">416,420</div>
+                          </button><button class="btn-price-back btn-price-non-sp btn btn-price ng-scope btn-price-depth" ng-repeat="marketItem in item.exchanges.availableToBack| orderBy:'price'" ng-class="{'btn-price-depth': item.exchanges.availableToBack.length - $index > 1 ,
+                                             'selected': priceButtonId === bet.selectedPriceButton &amp;&amp; bet.handicap === item.handicap,
+                                             'changed': hasChanged(priceButtonId)}" ng-init="depth = item.exchanges.availableToBack.length - $index > 1 ; priceButtonId = getPriceButtonId($index, item, 'BACK', runnerIndex, depth)"  (click)="selectionId = item.selectionId ; handicap =   item.handicap">
+                              <div class="price ng-binding">3.25</div>
+                              <div class="size ellipsis-text ng-binding">821,347</div>
+                          </button><button class="btn-price-back btn-price-non-sp btn btn-price ng-scope" ng-repeat="marketItem in item.exchanges.availableToBack| orderBy:'price'" ng-class="{'btn-price-depth': item.exchanges.availableToBack.length - $index > 1 ,
+                                             'selected': priceButtonId === bet.selectedPriceButton &amp;&amp; bet.handicap === item.handicap,
+                                             'changed': hasChanged(priceButtonId)}" ng-init="depth = item.exchanges.availableToBack.length - $index > 1 ; priceButtonId = getPriceButtonId($index, item, 'BACK', runnerIndex, depth)"   (click)="selectionId = item.selectionId ; handicap =   item.handicap">
+                              <div class="price ng-binding">3.3</div>
+                              <div class="size ellipsis-text ng-binding">701,180</div>
+                          </button><!-- end ngRepeat: marketItem in item.exchanges.availableToBack| orderBy:'price' -->
+                      </span>
+                      <span class="runner-lay">
+                          <!-- ngRepeat: marketItem in item.exchanges.availableToLay| orderBy:'price' --><button class="btn-price-lay btn-price-non-sp btn btn-price ng-scope" ng-repeat="marketItem in item.exchanges.availableToLay| orderBy:'price'" ng-class="{'btn-price-depth': $index > 0,
+                                      'selected': priceButtonId === bet.selectedPriceButton &amp;&amp; bet.handicap === item.handicap,
+                                      'changed': hasChanged(priceButtonId)}" ng-init="depth = $index > 0; priceButtonId = getPriceButtonId($index, item, 'LAY', runnerIndex, depth)"  (click)="selectionId = item.selectionId ; handicap =   item.handicap">
+                              <div class="price ng-binding">3.35</div>
+                              <div class="size ellipsis-text ng-binding">645,900</div>
+                          </button><!-- end ngRepeat: marketItem in item.exchanges.availableToLay| orderBy:'price' --><button class="btn-price-lay btn-price-non-sp btn btn-price ng-scope btn-price-depth" ng-repeat="marketItem in item.exchanges.availableToLay| orderBy:'price'" ng-class="{'btn-price-depth': $index > 0,
+                                      'selected': priceButtonId === bet.selectedPriceButton &amp;&amp; bet.handicap === item.handicap,
+                                      'changed': hasChanged(priceButtonId)}" ng-init="depth = $index > 0; priceButtonId = getPriceButtonId($index, item, 'LAY', runnerIndex, depth)"  (click)="selectionId = item.selectionId ; handicap =   item.handicap">
+                              <div class="price ng-binding">3.4</div>
+                              <div class="size ellipsis-text ng-binding">839,178</div>
+                          </button><!-- end ngRepeat: marketItem in item.exchanges.availableToLay| orderBy:'price' --><button class="btn-price-lay btn-price-non-sp btn btn-price ng-scope btn-price-depth" ng-repeat="marketItem in item.exchanges.availableToLay| orderBy:'price'" ng-class="{'btn-price-depth': $index > 0,
+                                      'selected': priceButtonId === bet.selectedPriceButton &amp;&amp; bet.handicap === item.handicap,
+                                      'changed': hasChanged(priceButtonId)}" ng-init="depth = $index > 0; priceButtonId = getPriceButtonId($index, item, 'LAY', runnerIndex, depth)"  (click)="selectionId = item.selectionId ; handicap =   item.handicap">
+                              <div class="price ng-binding">3.45</div>
+                              <div class="size ellipsis-text ng-binding">450,677</div>
+                          </button><!-- end ngRepeat: marketItem in item.exchanges.availableToLay| orderBy:'price' -->
+                          <!-- ngRepeat: marketItem in createEmptyArray(3 - item.exchanges.availableToLay.length) -->
+                      </span>
+                  </div>
+                  <div class="clearfix "></div>
+              </div>
+
+            
+              <div class="lessons-list" *ngIf="!(item.selectionId === selectionId && handicap === item.handicap ) else bet">
+                 
+                </div>
+          </div><!-- end ngRepeat: item in sportctrl.runners track by $index -->
+      </div>	
+</div><!-- end ngIf: sportctrl.data.marketId.isFEMarket() -->
+
+    <div class="clearfix"></div>
+    <!-- ngInclude: 'views/modules/fair-fancy/mk-fair-fancy-tpl.html' + version --><div class="market-fair-fancy ng-scope" ng-include="'views/modules/fair-fancy/mk-fair-fancy-tpl.html' + version"><!-- ngRepeat: market in fairFancyCtrl.markets track by $index --></div>
+
+    <div class="market-footer">
+        <div class="market-footer-item" ng-click="sportctrl.goAllMarket(sportctrl.sport.sportName, sportctrl.sport.eventId)">
+            <span class="market-small-icon"><strong translate="I18N.LABELS.ALL_MARKETS" class="ng-scope">All Markets</strong></span>
+            <span class="sprite-ui-chevron-arrow chevron-arrow"></span>
+        </div>
+    </div>
+    <!-- ngIf: isPhone && sportctrl.sport.sportName !== 'horse-racing' && sportctrl.sport.sportName !== 'greyhound-racing' --><!-- ngInclude: 'views/modules/mini-my-bets.html' + version --><div class="market-footer ng-scope" ng-if="isPhone &amp;&amp; sportctrl.sport.sportName !== 'horse-racing' &amp;&amp; sportctrl.sport.sportName !== 'greyhound-racing'" ng-include="'views/modules/mini-my-bets.html' + version"><!--SportController-->
+<section class="mod-more-avb ng-scope" ng-class="{'ex-loader-loading':sportctrl.loading['cancel-bet']}" ng-show="!sportctrl.isMarketClose()">
+<div class="ex-loader"><div class="fake-module-ui"><div class="fake-loader"></div></div></div>
+<!-- ngIf: sportctrl.openbets.matched !== undefined || sportctrl.openbets.unmatched !== undefined -->
+
+<div class="mini-bets pnLBet" ng-class="{'pnLBet':sportctrl.isDisplayPnL()}">
+    <!-- ngIf: sportctrl.openbets.unmatched !== undefined -->
+    <!-- ngIf: sportctrl.openbets.unmatched !== undefined -->
+
+    <!-- ngIf: sportctrl.openbets.matched !== undefined && sportctrl.hasMatchedBet -->
+    <!-- ngIf: sportctrl.openbets.matched !== undefined && sportctrl.hasMatchedBet -->
+    <!--For Fancy-->
+    <!-- ngIf: sportctrl.openbets.matched !== undefined && sportctrl.hasFairFancyMatchedBet -->
+    <!-- ngIf: sportctrl.openbets.matched !== undefined && sportctrl.hasFairFancyMatchedBet -->
+    <nav>
+        <!-- ngIf: sportctrl.openbets.matched !== undefined -->
+    </nav>
+</div>
+</section></div><!-- end ngIf: isPhone && sportctrl.sport.sportName !== 'horse-racing' && sportctrl.sport.sportName !== 'greyhound-racing' -->
+    <!-- ngIf: isPhone --><div class="market-phone ng-scope" ng-if="isPhone">
+        <div class="mod-info-rotate">
+            <div class="market-footer-item landscape-warning">
+                <div class="market-footer-text ellipsis-text ng-scope" translate="I18N.MESSAGES.ROTATE">Rotate screen to see market depth</div>
+                <span class="sprite-ui-rotatescreen sprite-position"></span>
+            </div>
+        </div>
+    </div><!-- end ngIf: isPhone -->
+</div>
+</div>
+
+<!-- ngIf: !isPhone --></div>
+            </div><!-- end ngIf: sportctrl.sport.sportName !== 'horse-racing' && sportctrl.sport.sportName !== 'greyhound-racing' -->
+
+            <!-- ngIf: sportctrl.sport.sportName === 'horse-racing' || sportctrl.sport.sportName === 'greyhound-racing' -->
+
+            <!-- ngIf: sportctrl.sport.sportName === 'horse-racing' || sportctrl.sport.sportName === 'greyhound-racing' -->
+
+        </div>
+        </div><!-- end ngIf: !sportctrl.isSoccerGoalLines && !sportctrl.isCombinedTotal -->
+        <!-- ngInclude: 'views/modules/soccer-goal-lines.html' + version --><div ng-include="'views/modules/soccer-goal-lines.html' + version" class="ng-scope"><!-- ngIf: sportctrl.isSoccerGoalLines --></div>
+        <!-- ngInclude: 'views/modules/market-total-points.html' + version --><div ng-include="'views/modules/market-total-points.html' + version" class="ng-scope"><!-- ngIf: sportctrl.isCombinedTotal --></div>
+    </div><!-- end ngIf: !isMaintenance && !isInActive -->
+    <!-- ngIf: isInActive -->
+    <!-- ngIf: isMaintenance -->
+</div>
+<ng-template #bet > 
+    <div  ng-show="bet.selectionId === item.selectionId &amp;&amp; bet.handicap === item.handicap &amp;&amp; bet.showInlineBet" ng-include="'views/modules/inlinebet.html' + version" class="ng-scope ng-hide"><!--SportController-->
+      <div  class="mod-inlinebet ng-scope" scroll-inline-bet="" id="innline-bet-active">
+      <div class="notification ng-hide" ng-show=" bet.validationErrors.length > 0">
+          <div class="message-list">
+              <!-- ngRepeat: error in bet.validationErrors track by $index -->
+
+              <span class="dismiss-button sprite-ui-icon-close" (click)="selectionId = item.selectionId ; handicap =   item.handicap"></span>
+          </div>
+      </div>
+      <div class="betForm" ng-class="{back: bet.type === 'BACK', lay: bet.type === 'LAY', 'update-bet':bet.updateBet, 'best-odd': bet.bestOdd}" id="betForm">
+          <div class="element">
+              <div class="price" ng-class="{disabled: sportctrl.isDisabledOdds()}">
+                  <div class="btn btn-bet minus" ng-click="sportctrl.isDisabledOdds() || onMinusPrice()">
+                      <span class="sprite-ui-place-bet-minus place-bet-minus"></span>
+                  </div>
+                  <!-- ngIf: !sportctrl.quickStakeButonStatus -->
+                  <!-- ngIf: sportctrl.quickStakeButonStatus --><div  class="input-placeholder ng-scope" ng-if="sportctrl.quickStakeButonStatus">
+                      <div class="input odds ng-pristine ng-untouched ng-valid quick-stakes-input" ng-disabled="sportctrl.isDisabledOdds()" ng-class="{'quick-stake-input-selected': inputClick ==='ODDS' }" ng-click="sportctrl.clickInputOdd($event)" tabindex="-1" ng-blur="handleBlurInputOdds()">
+                          <!-- ngIf: !bet.price --><span ng-if="!bet.price" class="quick-stakes-placeholder ng-scope">Odds</span><!-- end ngIf: !bet.price -->
+                          <!-- ngIf: bet.price -->
+                          <!-- ngIf: inputClick ==='ODDS' -->
+                      </div>
+                  </div><!-- end ngIf: sportctrl.quickStakeButonStatus -->
+                  <div class="btn btn-bet plus" ng-click="sportctrl.isDisabledOdds() || onPlusPrice()">
+                      <span class="sprite-ui-place-bet-plus place-bet-plus"></span>
+                  </div>
+              </div>
+          </div>
+          <div class="element">
+              <div class="size" ng-class="{disabled: sportctrl.isDisabledStake()}">
+                  <div class="btn btn-bet minus" ng-click="sportctrl.isDisabledStake() || onMinusStake()">
+                      <span class="sprite-ui-place-bet-minus place-bet-minus"></span>
+                  </div>
+                  <!-- ngIf: !sportctrl.quickStakeButonStatus -->
+                  <!-- ngIf: sportctrl.quickStakeButonStatus --><div class="input-placeholder ng-scope" ng-if="sportctrl.quickStakeButonStatus">
+                      <div id="input-stake-" class="input stake ng-pristine ng-untouched ng-valid quick-stakes-input" ng-disabled="sportctrl.isDisabledStake()" ng-class="{'quick-stake-input-selected': inputClick ==='STAKE' }" ng-click="sportctrl.clickInputStake($event)" tabindex="-1" ng-blur="handleBlurInputStakes()">
+                          <!-- ngIf: !bet.stake --><span ng-if="!bet.stake" class="quick-stakes-placeholder ng-scope">Stake</span><!-- end ngIf: !bet.stake -->
+                          <!-- ngIf: bet.stake -->
+                          <!-- ngIf: inputClick ==='STAKE' -->
+                      </div>
+                  </div><!-- end ngIf: sportctrl.quickStakeButonStatus -->
+                      
+                  <div class="btn btn-bet plus" ng-click="sportctrl.isDisabledStake() || onPlusStake()">
+                      <span class="sprite-ui-place-bet-plus place-bet-plus"></span>
+                  </div>
+              </div>
+          </div>
+          <!-- ngIf: bet.updateBet && sportctrl.data.turnInPlayEnabled && (sportctrl.data.marketType =='ALT_TOTAL_GOALS' || !sportctrl.isAHDoubleLine(sportctrl.data.bettingType)) -->
+          <div class="element">
+              <!-- ngIf: bet.updateBet -->
+              <!-- ngIf: !bet.updateBet --><div ng-if="!bet.updateBet" class="btn btn-bet cancel ellipsis-text ng-scope" ng-click="sportctrl.cancelAndClear()">
+                  <span translate="I18N.LABELS.CANCEL" class="ng-scope">Cancel</span>
+              </div><!-- end ngIf: !bet.updateBet -->
+          </div>
+          <div class="element">
+              <div class="btn btn-bet placebet ellipsis-text disabled" ng-class="{'disabled':!bet.hasPnl || sportctrl.isDisableUpdate() || sportctrl.loading['place-bet'], 'with-profit':bet.hasPnl &amp;&amp; !sportctrl.isDisableUpdate(),'ex-loader-loading':sportctrl.loading['update-bet'] || sportctrl.loading['place-bet']}" ng-click="sportctrl.placeOrUpdateBet()">
+                  <div class="ex-loader"><div class="fake-module-ui"><div class="fake-loader"></div></div></div>
+                  <div class="placebet-title ellipsis-text" ng-class="{'with-profit':bet.hasPnl &amp;&amp; !sportctrl.isDisableUpdate()}">
+                      <!-- ngIf: !bet.updateBet --><span ng-if="!bet.updateBet" translate="I18N.LABELS.PLACE_BET" class="ng-scope">Place Bet</span><!-- end ngIf: !bet.updateBet -->
+                      <!-- ngIf: bet.updateBet -->
+                  </div>
+                  <!-- ngIf: bet.hasPnl && !sportctrl.isDisableUpdate() -->
+              </div>
+          </div>
+      </div>
+      <!-- ngIf: sportctrl.quickStakeButonStatus --><!-- ngInclude: 'views/modules/quick-stakes-mobile.html' --><div ng-if="sportctrl.quickStakeButonStatus" ng-include="'views/modules/quick-stakes-mobile.html'" class="ng-scope"><!--SportController-->
+      <div class="quick-stake-module ng-scope">
+      <div class="quick-stake-items">
+          <!-- ngRepeat: data in sportctrl.quickStakes track by $index --><div ng-repeat="data in sportctrl.quickStakes track by $index" class="col-xs-3 quick-stake-item ng-scope">
+              <!-- ngIf: !isTaj88() --><button ng-if="!isTaj88()" type="button" class="btn quick-stake-btn ng-pristine ng-untouched ng-valid ng-binding ng-scope" ng-class="{disabled: inputClick ==='ODDS' }" ng-model="data.stake" ng-click="sportctrl.clickQuickStakesBtn(data.stake, $index)">INR&nbsp;230</button><!-- end ngIf: !isTaj88() -->
+              <!-- ngIf: isTaj88() -->
+          </div><!-- end ngRepeat: data in sportctrl.quickStakes track by $index --><div ng-repeat="data in sportctrl.quickStakes track by $index" class="col-xs-3 quick-stake-item ng-scope">
+              <!-- ngIf: !isTaj88() --><button ng-if="!isTaj88()" type="button" class="btn quick-stake-btn ng-pristine ng-untouched ng-valid ng-binding ng-scope" ng-class="{disabled: inputClick ==='ODDS' }" ng-model="data.stake" ng-click="sportctrl.clickQuickStakesBtn(data.stake, $index)">INR&nbsp;460</button><!-- end ngIf: !isTaj88() -->
+              <!-- ngIf: isTaj88() -->
+          </div><!-- end ngRepeat: data in sportctrl.quickStakes track by $index --><div ng-repeat="data in sportctrl.quickStakes track by $index" class="col-xs-3 quick-stake-item ng-scope">
+              <!-- ngIf: !isTaj88() --><button ng-if="!isTaj88()" type="button" class="btn quick-stake-btn ng-pristine ng-untouched ng-valid ng-binding ng-scope" ng-class="{disabled: inputClick ==='ODDS' }" ng-model="data.stake" ng-click="sportctrl.clickQuickStakesBtn(data.stake, $index)">INR&nbsp;920</button><!-- end ngIf: !isTaj88() -->
+              <!-- ngIf: isTaj88() -->
+          </div><!-- end ngRepeat: data in sportctrl.quickStakes track by $index --><div ng-repeat="data in sportctrl.quickStakes track by $index" class="col-xs-3 quick-stake-item ng-scope">
+              <!-- ngIf: !isTaj88() --><button ng-if="!isTaj88()" type="button" class="btn quick-stake-btn ng-pristine ng-untouched ng-valid ng-binding ng-scope" ng-class="{disabled: inputClick ==='ODDS' }" ng-model="data.stake" ng-click="sportctrl.clickQuickStakesBtn(data.stake, $index)">INR&nbsp;1,840</button><!-- end ngIf: !isTaj88() -->
+              <!-- ngIf: isTaj88() -->
+          </div><!-- end ngRepeat: data in sportctrl.quickStakes track by $index -->
+      </div>
+      <div class="ppb-doubleline-keyboard numeric-keyboard-open numeric-keyboard-open virtual-keys">
+          <!---->
+          <div class="panel-row panel-keyboard">
+              <div class="panel-left">
+                  <div class="panel-row">
+                      <div class="button-container numeric-input-1 fastclickable" ng-click="sportctrl.clickNumber(1, $event)">1</div>
+                      <div class="button-container numeric-input-2 fastclickable" ng-click="sportctrl.clickNumber(2, $event)">2</div>
+                      <div class="button-container numeric-input-3 fastclickable" ng-click="sportctrl.clickNumber(3, $event)">3</div>
+                      <div class="button-container numeric-input-4 fastclickable" ng-click="sportctrl.clickNumber(4, $event)">4</div>
+                      <div class="button-container numeric-input-5 fastclickable" ng-click="sportctrl.clickNumber(5, $event)">5</div>
+                      <div class="button-container numeric-input-6 fastclickable" ng-click="sportctrl.clickNumber(6, $event)">6</div>
+                  </div>
+                  <div class="panel-row bottom-row">
+                      <div class="button-container numeric-input-7 fastclickable" ng-click="sportctrl.clickNumber(7, $event)">7</div>
+                      <div class="button-container numeric-input-8 fastclickable" ng-click="sportctrl.clickNumber(8, $event)">8</div>
+                      <div class="button-container numeric-input-9 fastclickable" ng-click="sportctrl.clickNumber(9, $event)">9</div>
+                      <div class="button-container numeric-input-0 fastclickable" ng-click="sportctrl.clickNumber(0, $event)">0</div>
+                      <div class="button-container numeric-input-00 fastclickable" ng-click="sportctrl.clickNumber('00', $event)">00</div>
+                      <div class="button-container numeric-input-decimal-separator fastclickable" ng-click="sportctrl.clickDecimalSeparator($event)">.</div>
+                  </div>
+              </div>
+              <div class="panel-right">
+                  <div class="panel-row">
+                      <div class="button-container-clear numeric-input-clear" ng-click="sportctrl.startDelete()" >
+                          <span class="icon-clear"></span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </div>
+      </div><!-- end ngIf: sportctrl.quickStakeButonStatus -->
+      </div>
+      </div>
+</ng-template>
+</ion-content>
+
+

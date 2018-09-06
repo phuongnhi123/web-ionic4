@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Favourites</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+<!--FavouritesController-->
+<main id="main-view" class="navbar multi-market-container" [hidden]="!(!$rootScope.isHiddenRule || !$rootScope.isHiddenGraph)">
+    <div id="play-for-fun-sport" class="event-header">
+        <div class="my-bets-header">
+            <div class="header-title-ui header-title-page-ui sub-header-sticky">
+                <span class="title-icon events-icon glyphicon glyphicon-star"></span>
+                <span class="no-print-element " >"I18N.MESSAGES.MULTI_MARKET" </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-market-view" [ngClass]="{'ex-loader-loading':loadingAllFavourites}" >
+        <!-- <spinner></spinner> -->
+        <div *ngIf="!isMaintenance" class="layout-market-view">
+            <div ng-repeat="multiMarket in listMultiMarket track by $index" 
+            	ng-class="multiMarket.sport.sportName">
+                <div ng-if="multiMarket.data.sportName !== 'Horse Racing' && multiMarket.data.sportName !== 'Greyhound Racing'">
+                    <div ng-if="!multiMarket.isSoccerGoalLines" ng-include="'views/modules/favourites/favourites-market-view.html' + version"></div>
+                    <div ng-if="multiMarket.isSoccerGoalLines" ng-include="'views/modules/favourites/favourites-soccer-goal-lines.html' + version"></div>
+                </div>
+
+                <div  ng-if="multiMarket.data.sportName === 'Horse Racing' || multiMarket.data.sportName === 'Greyhound Racing'"
+                      ng-include="'views/modules/favourites/favourites-market-race-view.html' + version"></div>
+            </div>
+            <div class="mod-market-view">
+	            <div class="market-view-container">
+	            	<div class="market-fair-fancy" ng-include="'views/modules/fair-fancy/mk-fair-fancy-tpl.html' + version"></div>
+	            </div>
+            </div>
+            <div class="mod-market-view">
+                <div class="warning" ng-if="!multiMarketList || multiMarketList.length == 0">
+                    <span translate="I18N.MESSAGES.ADD_MULTI_MARKET_HERE"></span>
+                </div>
+            </div>
+        </div>
+
+        <div ng-if="isInActive" class="mod-market-view">
+            <div class="warning"> <span translate="I18N.MESSAGES.MARKET_NO_LONGER_AVAILABLE"></span></div>
+        </div>
+
+        <div ng-if="isMaintenance">
+            <div ng-include="'views/modules/maintenance.html'"></div>
+        </div>
+
+    </div>
+</main>
+
+<div ng-if="isShowPickMeeting" ng-include="'views/modules/race-pick-meeting.html' + version"></div>
+<div ng-include="'views/message/notice-bets.html' + version"></div>
+<div ng-if="modal.dialog.show" ng-include="'views/dialog/modal.html' + version"></div>
+<main id="popup" class="navbar" ng-hide="isHiddenRule"><div ng-include="'views/modules/rule.html' + version"></div></main>
+<main id="popup" class="navbar" ng-hide="isHiddenPLTable"><div ng-include="'views/modules/pltable.html' + version"></div></main>
+
+</ion-content>

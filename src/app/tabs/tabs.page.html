@@ -1,0 +1,14 @@
+<ion-tabs>
+  <ion-tab label="Home" icon="apps" href="/main/tabs/tabs/(home:home)">
+    <ion-router-outlet name="home"></ion-router-outlet>
+  </ion-tab>
+  <ion-tab label="Report" badge="{{count}}" icon="paper-plane" href="/main/tabs/tabs/(report:report)">
+    <ion-router-outlet name="report"></ion-router-outlet>
+  </ion-tab>
+  <ion-tab label="Contact" icon="contacts" href="/main/tabs/tabs/(contact:contact)">
+    <ion-router-outlet name="contact"></ion-router-outlet>
+  </ion-tab>
+  <ion-tab label="Fav" icon="star" href="/main/tabs/tabs/(favourites:favourites)">
+    <ion-router-outlet name="favourites"></ion-router-outlet>
+  </ion-tab>
+</ion-tabs>

@@ -1,0 +1,13 @@
+{
+  "name": "myApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "proxies": [
+    {
+      "path": "/member-service",
+      "proxyUrl": "http://localhost/member-service"
+    }
+  ]
+}
